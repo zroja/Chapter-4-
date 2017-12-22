@@ -1,0 +1,45 @@
+// Zahin Roja
+// November 6, 2017
+// Program that uses a function to calc total cost
+
+#include <iostream>
+using namespace std;
+
+// Prototypes
+double totalCost(int, double);
+
+int main()
+{
+   // Variables
+   double price, bill;
+   int number;
+
+   // input
+   cout << "Enter the number of items purchased: " ;
+   cin  >> number;
+   cout << "             Enter the price per item" ;
+   cin  >> price;
+
+   // Processing
+   bill = totalCost(number, price);
+
+   // Output
+   cout.setf(ios::fixed);
+   cout.setf(ios::showpoint);
+   cout.precision(2);
+   cout << number << " items at "
+        << "$" << price << " each. \n"
+        << "Final bill inlcuding tax is $" << bill
+        << endl;
+   return 0;
+}
+
+double totalCost(int numberPar, double pricePar)
+{
+   const double TAX_RATE = 0.05;
+   double subTotal;
+
+   subTotal = numberPar * pricePar;
+   return (subTotal + (subTotal * TAX_RATE));
+}
+
